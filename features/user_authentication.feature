@@ -38,7 +38,7 @@ Feature: User authentication
     And I fill in "eliza@example.com" for "Email"
     And I fill in "foobar" for "Password"
     And I click "Sign in"
-    Then I should see "You are now signed in."
+    Then I should see "Signed in successfully."
 
   Scenario: Logging in with incorrect password
     Given there is a user "eliza@example.com" with password "notfoobar"
@@ -47,12 +47,12 @@ Feature: User authentication
     And I fill in "eliza@example.com" for "Email"
     And I fill in "foobar" for "Password"
     And I click "Sign in"
-    Then I should see "Incorrect email or password"
+    Then I should see "Invalid email or password."
     And the "Email" field should contain "eliza@example.com"
 
   Scenario: Logging out
     Given I am signed in
     And I am on the homepage
     When I click "Sign Out"
-    Then I should see "You are now signed out."
+    Then I should see "Signed out successfully."
 
