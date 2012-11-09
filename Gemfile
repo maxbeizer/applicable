@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'devise'
 gem 'pg'
+gem "simple_form"
 
 
 # Gems used only for assets and not required
