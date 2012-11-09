@@ -33,6 +33,6 @@ def sign_in_as user
     And I fill in "#{user.email}" for "Email"
     And I fill in "password" for "Password"
     And I click "Sign in"
-    Then I should see "You are now signed in."
+    Then I should see "Signed in successfully."
   }
 end
