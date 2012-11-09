@@ -1,26 +1,21 @@
-@wip
 Feature: Homepage
   As an applicant
   In order to start the application
   I want to sign in on the homepage
 
+  Background: 
+    Given I am on the homepage
+
   Scenario: Happy Path
-    Given I am on the homepage
-    And I am not signed in
+    Given I am signed in as "user1@example.com"
     Then I should see the title "Apply for NSS!"
-    When I fill in "eliza@example.com" for "Email"
-    And I click "Begin"
-    Then I should see "Welcome to the NSS application!"
+    And I should see "Begin"
 
-  Scenario: No email given
-    Given I am on the homepage
-    And I am not signed in
-    When I click "Begin"
-    Then I should see "You must enter an email."
-    And I should be on the homepage
+  Scenario: No begin button if you're not signed in
+    Given I am not signed in
+    Then I should not see "Begin"
+    And I should see "Sign Up"
+    When I click "Sign Up"
+    Then I should see the title "Sign up"
+    ## Is clicking "Sign Up" getting the button at the bottom or nav button?
 
-  Scenario: Already signed up
-    Given I am on the homepage
-    And there is a user with the email "eliza@example.com"
-    When I fill in "eliza@example.com" for "Email"
-    Then I should see "That email is already in our system."
