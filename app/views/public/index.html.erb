@@ -1,12 +1,14 @@
 <div class="row">
   <div class="twelve columns">
-    <h1 class="six columns centered text-center">Apply for NSS!</h1>
-    <p class="six columns centered">Bacon ipsum dolor sit amet pork belly venison tri-tip, bacon ham hock flank pork tail corned beef. Pork loin ground round capicola ham hock pancetta tail turducken chuck shank venison. T-bone bresaola ground round, pork loin pork chop brisket shoulder chicken. Tongue ribeye jerky, chuck pork rump shank spare ribs drumstick short ribs capicola corned beef flank jowl prosciutto. Sausage short ribs ham hock pork loin hamburger tri-tip tail salami.
-    </p>
-    <%- if user_signed_in?  %>
-      <%= link_to "Begin", :root, class: "radius button" %>
-    <%- else  %>
-      <%= link_to "Sign Up ", new_user_registration_path, class: "radius button"   %>
-    <%- end  %>
+    <div class="six columns centered">
+      <h1 class="text-center">Apply for NSS!</h1>
+      <p>Bacon ipsum dolor sit amet pork belly venison tri-tip, bacon ham hock flank pork tail corned beef. Pork loin ground round capicola ham hock pancetta tail turducken chuck shank venison. T-bone bresaola ground round, pork loin pork chop brisket shoulder chicken. Tongue ribeye jerky, chuck pork rump shank spare ribs drumstick short ribs capicola corned beef flank jowl prosciutto. Sausage short ribs ham hock pork loin hamburger tri-tip tail salami.
+      </p>
+      <%- if user_signed_in?  %>
+        <%= link_to "Begin", :root, class: "radius button twelve columns centered" %>
+      <%- else  %>
+        <%= link_to "Sign Up ", new_user_registration_path, class: "radius button twelve columns centered"   %>
+      <%- end  %>
+    </div>
   </div>
 </div>
