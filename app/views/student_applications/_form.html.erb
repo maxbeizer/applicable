@@ -1,0 +1,7 @@
+<!-- by default all fields are required per simple_form -->
+<%= simple_form_for(@student_application) do |f|  %>
+  <%= f.input :first_name, :label => 'First Name' %>
+  <%= f.input :last_name, :label => 'Last Name' %>
+  <%= f.input :phone, :label => 'Phone' %>
+  <%= f.submit %>
+<% end %>
