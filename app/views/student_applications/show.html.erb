@@ -1,3 +1,18 @@
 <h1>Review Your Application</h1>
 <h2><%= @student_application.first_name %> <%= @student_application.last_name %></h2>
-<%= @student_application.phone  %>
+<%- [:phone,:date_of_birth, :twitter, :personal_url,
+    :employment_history, :employment_status,
+    :application_reason, :tech_background,
+    :tech_story, :site_critique, :discovery,
+    :video, :program_selection, :seeking_job,
+    :scholarship, :location, :commitments,
+    :awareness, :anything_else].each do |entry| %>
+  <p>
+    <strong><%= entry.to_s.humanize.capitalize %>:</strong>
+    <%- if entry == :date_of_birth %>
+      <%=  @student_application.send(entry).strftime("%B %-d, %Y") %>
+    <%- else %>
+      <%= @student_application.send(entry) %>
+    <%- end %>
+  </p>
+<%- end %>
