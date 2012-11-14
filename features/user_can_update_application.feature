@@ -1,4 +1,3 @@
-@wip
 Feature: Update Application
   In order to fix errors on my application
   As an applicant user
