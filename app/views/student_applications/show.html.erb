@@ -14,5 +14,6 @@
     <%- else %>
       <%= @student_application.send(entry) %>
     <%- end %>
+    <%= link_to "revise this answer", edit_student_application_path(@student_application) %>
   </p>
 <%- end %>

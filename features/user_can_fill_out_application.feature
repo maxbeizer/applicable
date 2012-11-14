@@ -42,7 +42,7 @@ Feature: Fill Out Application
     #for some reason ^^^ is not picking up that long string for the label
     And I fill in "There is nothing else you need to know" for "student_application_anything_else"
     #for some reason ^^^ is not picking up that long string for the label
-    And I click "Create Student application"
+    And I click "Submit Application"
     Then I should see "Your Application has been created."
     And I should see the title "Review Your Application"
 
