@@ -1,7 +1,7 @@
 Applicable::Application.routes.draw do
   devise_for :users
 
-  root to: "student_applications#index"
+  root to: "public#index"
 
   resources :student_applications
   # The priority is based upon order of creation:

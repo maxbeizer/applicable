@@ -30,12 +30,13 @@
       <nav class="top-bar">
         <ul>
           <li class="name">
-            <h1><a href="#">Applicable: An NSS Application App</a></h1>
+          <h1><%= link_to "Applicable: An NSS Application App", :root %></h1>
           </li>
           <li class="toggle-topbar"><a href="#"></a></li>
         </ul>
         <ul class="right">
           <%- if user_signed_in? %>
+              <li class="signed-in-as">Signed in as <%= current_user.email %></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <%- else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>

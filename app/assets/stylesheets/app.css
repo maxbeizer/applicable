@@ -21,6 +21,14 @@ html, body {height: 100%;}
   padding-bottom: 50px;
 }
 
+.signed-in-as {
+  padding: 0 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.top-bar ul > li:not(.name):hover, .top-bar ul > li:not(.name).active {background:none;}
+
 label {font-weight:bold;}
 
 .radio {font-weight:normal;}
