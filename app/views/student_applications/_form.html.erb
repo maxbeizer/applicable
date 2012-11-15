@@ -48,7 +48,7 @@
   <%= f.input :anything_else, :label => 'Is there anything else that you would like us to know?' %>
 
   <%- if user_signed_in? %>
-    <%= f.submit submit_text %>
+    <%= f.submit submit_text, class: 'radius button twelve columns centered' %>
   <%- else %>
     <%= link_to "Sign In", new_user_session_path %>
   <% end %>

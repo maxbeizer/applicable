@@ -46,12 +46,26 @@
   </div>
 </div>
 </header>
-  <div class="container row">
-    <div class="twelve columns">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+  <div id="wrap">
+    <div id="main">
+      <div class="container row">
+        <div class="twelve columns">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </div>
+<footer>
+  <div class="twelve columns">
+    <div class="container row">
+      <div class="left">
+        <h4><a href="#">Applicable: An NSS Application App</a></h4>
+      </div>
+      <div id="copyright" class="right">&copy; 2012</div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
