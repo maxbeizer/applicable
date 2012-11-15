@@ -1,15 +1,71 @@
 <!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <title>Applicable</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8" />
+
+<!-- Uncomment to make IE8 render like IE7 -->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title><%= content_for?(:title) ? yield(:title) : "Applicable" %></title>
+
+<!-- Included CSS Files -->
+<%= stylesheet_link_tag    "application" %>
+
+<!-- Included JS Files  -->
+<%= javascript_include_tag "application" %>
+
+<%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
->>>>>>> parent of 5216a22... Add Foundation-Rails gem with Compass
+  <header>
+  <div class="container top-bar home-border">
+    <div class="twelve columns">
+      <nav class="top-bar">
+        <ul>
+          <li class="name">
+            <h1><a href="#">Applicable: An NSS Application App</a></h1>
+          </li>
+          <li class="toggle-topbar"><a href="#"></a></li>
+        </ul>
+        <ul class="right">
+          <%- if user_signed_in? %>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <%- else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <%- end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  </header>
+  <div id="wrap">
+  <div id="main">
+  <div class="container row">
+    <div class="twelve columns">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </div>
+  </div>
+  </div>
+  <footer>
+  <div class="twelve columns">
+    <div class="container row">
+      <div class="left">
+        <h4><a href="#">Applicable: An NSS Application App</a></h4>
+      </div>
+      <div id="copyright" class="right">&copy; 2012</div>
+    </div>
+  </div>
+  </footer>
 </body>
 </html>

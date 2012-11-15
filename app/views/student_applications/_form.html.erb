@@ -1,14 +1,40 @@
-<!-- by default all fields are required per simple_form -->
-<%= simple_form_for(@student_application) do |f|  %>
-  <%= f.input :first_name, :label => 'First Name' %>
-  <%= f.input :last_name, :label => 'Last Name' %>
-  <%= f.input :phone, :label => 'Phone' %>
-  <%= f.input :date_of_birth, :as => :date, :start_year => Date.today.year - 90,
-                                :end_year => Date.today.year - 12,
-                                :order => [:month, :day, :year] %>
-
-  <%= f.input :twitter, :label => 'Twitter' %>
-  <%= f.input :personal_url, :label => 'Personal URL' %>
+<dl class="tabs">
+  <dd class="active"><a href="#simple1">Basic Information</a></dd>
+  <dd><a href="#simple2">Employment Background</a></dd>
+  <dd class="hide-for-small"><a href="#simple3">Technology</a></dd>
+  <dd class="hide-for-small"><a href="#simple4">Finishing Up</a></dd>
+</dl>
+<ul class="tabs-content">
+  <li class="active" id="simple1Tab">
+    <div class="row">
+        <%= simple_form_for(@student_application) do |f|  %>
+      <div class="six columns">
+        <%= f.input :first_name, :label => 'First Name' %>
+      </div>
+      <div class="six columns">
+        <%= f.input :last_name, :label => 'Last Name' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="six columns">
+        <%= f.input :phone, :label => 'Phone' %>
+      </div>
+      <div class="six columns">
+        <%= f.input :date_of_birth, :as => :date, :start_year => Date.today.year - 90,
+                                      :end_year => Date.today.year - 12,
+                                      :order => [:month, :day, :year] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="six columns">
+        <%= f.input :twitter, :label => 'Twitter' %>
+      </div>
+      <div class="six columns">
+        <%= f.input :personal_url, :label => 'Personal URL' %>
+      </div>
+    </div>
+  </li>
+  <li id="simple2Tab">
   <%= f.input :employment_history, :label => 'Employment History' %>
   <%= f.input :employment_status, :label => 'I am currently...', 
                                   :collection => ['Self-employed', 'Employed',
@@ -18,11 +44,16 @@
                                   :as => :radio_buttons  %>
 
   <%= f.input :application_reason, :label => 'Why are you applying for the Nashville Software School?' %>
+  </li>
+  <li id="simple3Tab">
   <%= f.input :tech_background, :label => 'What is your background with computers/technology/programming?' %>
   <%= f.input :tech_story, :label => "The ideal candidate is someone who loves to solve problems or tinker and who doesn't easily give up.  Can you tell us a story that illustrates these qualities in you?" %>
   <%= f.input :site_critique, :label => 'What do you like and not like about our website?  What can we do better?' %>
   <%= f.input :discovery, :label => 'Please tell us something surprising or amusing that you have discovered.' %>
   <%= f.input :video, :label => 'Video link: It\'s not required but a short video gives you a chance to sell yourself to us in a way that text cannot.  To help make sure we like you feel free to create a short video to support your application.  Put the link to the video here.' %>
+  </li>
+  <li id="simple4Tab">
+
 
   <%= f.input :program_selection, :label => 'Which student cohort / program date are you applying for?',
               :collection => ['January 2013 for Web Development Bootcamp',
@@ -53,3 +84,5 @@
     <%= link_to "Sign In", new_user_session_path %>
   <% end %>
 <% end %>
+  </li>
+</ul>
