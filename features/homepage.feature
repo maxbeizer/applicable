@@ -1,4 +1,3 @@
-@wip
 Feature: Homepage
   As an applicant
   In order to start the application
@@ -18,5 +17,4 @@ Feature: Homepage
     And I should see "Sign Up"
     When I click "Sign Up"
     Then I should see the title "Sign up"
-    ## Is clicking "Sign Up" getting the button at the bottom or nav button?
 
