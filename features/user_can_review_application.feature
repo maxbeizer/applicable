@@ -3,10 +3,11 @@ Feature: Review Application
   As an applicant user
   I want to have the ability to review my application
 
+  @wip
   Scenario: Happy Path
     Given I am on the homepage
     And I am signed in
-    And I click "New Application"
+    And I click "Begin"
     And I fill in all the fields
     When I click "Submit Application"
     Then I should see the title "Review Your Application"

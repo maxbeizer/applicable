@@ -1,4 +1,3 @@
-@wip
 Feature: Homepage
   As an applicant
   In order to start the application

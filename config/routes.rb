@@ -3,7 +3,9 @@ Applicable::Application.routes.draw do
 
   root to: "public#index"
 
-  resources :student_applications
+  resources :users do
+    resources :student_applications
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
