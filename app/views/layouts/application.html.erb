@@ -35,12 +35,12 @@
           <li class="toggle-topbar"><a href="#"></a></li>
         </ul>
         <ul class="right">
-          <%- if user_signed_in? %>
-              <li class="signed-in-as">Signed in as <%= current_user.email %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <%- if student_signed_in? %>
+              <li class="signed-in-as">Signed in as <%= current_student.email %></li>
+              <li><%= link_to "Sign Out", destroy_student_session_path, method: :delete %></li>
           <%- else %>
-              <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
+              <li><%= link_to "Sign Up", new_student_registration_path %></li>
+            <li><%= link_to "Sign In", new_student_session_path %></li>
           <%- end %>
         </ul>
       </nav>

@@ -8,11 +8,11 @@ Feature: Review Application
     And I am signed in
     And I click "Begin"
     And I fill in all the fields
-    When I click "Submit Application"
+    When I click "Update Application"
     Then I should see the title "Review Your Application"
     And I should see the title "Eliza"
     And I should see the title "Brock"
-    And I should see "#{user.email}"
+    And I should see the student's email
     And I should see "Phone: 1112223333"
     And I should see "revise this answer"
     And I should see "Date of birth: June 6, 1944"

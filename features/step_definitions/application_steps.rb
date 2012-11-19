@@ -1,5 +1,5 @@
 Given "I have started an application already" do
-  Fabricate(:student_application)
+  Fabricate(:student)
 end
 
 Given "I have not started an application already" do

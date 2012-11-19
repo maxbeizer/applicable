@@ -22,6 +22,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'fabrication'
   gem 'rspec-rails', '~> 2.5'
+  gem 'pry-rails'
 end
 
 group :test do
