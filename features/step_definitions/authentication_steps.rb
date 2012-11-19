@@ -17,7 +17,7 @@ Given /^I am signed in$/ do
 end
 
 Given /^I am not signed in$/ do
-  @user = nil
+  delete destroy_user_session_path
 end
 
 def sign_in_as user

@@ -1,5 +1,6 @@
 <h1>Review Your Application</h1>
 <h2><%= @student_application.first_name %> <%= @student_application.last_name %></h2>
+<h3><%= @student_application.user.email %></h3>
 <%- [:phone,:date_of_birth, :twitter, :personal_url,
     :employment_history, :employment_status,
     :application_reason, :tech_background,

@@ -6,6 +6,8 @@ class StudentApplication < ActiveRecord::Base
                   :tech_story, :site_critique, :discovery,
                   :video, :program_selection, :seeking_job,
                   :scholarship, :location, :commitments,
-                  :awareness, :anything_else
+                  :awareness, :anything_else, :user_id
+
+  belongs_to :user
 
 end
