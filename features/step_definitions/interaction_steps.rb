@@ -34,7 +34,6 @@ When /^I choose "(.*)"$/ do |value|
     choose(value)
 end
 
-
 Then /^the "(.*?)" field should contain "(.*?)"$/ do |field_name, text|
   step %{I should see "#{text}" in the "#{field_name}" field}
 end

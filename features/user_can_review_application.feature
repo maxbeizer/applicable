@@ -3,7 +3,6 @@ Feature: Review Application
   As an applicant user
   I want to have the ability to review my application
 
-  @wip
   Scenario: Happy Path
     Given I am on the homepage
     And I am signed in

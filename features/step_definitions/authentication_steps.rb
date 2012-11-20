@@ -20,7 +20,7 @@ Given /^I am not signed in$/ do
   delete destroy_student_session_path
 end
 
-Then /^I should see the student's email$/ do
+And /^I should see the student's email$/ do
   @student = Fabricate(:student)
   @student.email
 end
