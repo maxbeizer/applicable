@@ -1,13 +1,13 @@
 <dl class="tabs">
   <dd class="active"><a href="#simple1">Basic Information</a></dd>
   <dd><a href="#simple2">Employment Background</a></dd>
-  <dd class="hide-for-small"><a href="#simple3">Technology</a></dd>
-  <dd class="hide-for-small"><a href="#simple4">Finishing Up</a></dd>
+  <dd><a href="#simple3">Technology</a></dd>
+  <dd><a href="#simple4">Finishing Up</a></dd>
 </dl>
+<%= simple_form_for(current_student) do |f|  %>
 <ul class="tabs-content">
   <li class="active" id="simple1Tab">
     <div class="row">
-        <%= simple_form_for [@user, @student_application] do |f|  %>
       <div class="six columns">
         <%= f.input :first_name, :label => 'First Name' %>
       </div>
@@ -78,12 +78,12 @@
     <%= f.input :commitments, :label => 'Do you have commitments on the weekdays during Web Development Bootcamp?' %>
     <%= f.input :awareness, :label => 'How did you hear about Nashville Software School?' %>
     <%= f.input :anything_else, :label => 'Is there anything else that you would like us to know?' %>
-  </li>
-</ul>
-  <%- if user_signed_in? %>
+
+  <%- if student_signed_in? %>
     <%= f.submit submit_text, class: 'radius button twelve columns centered' %>
   <%- else %>
-    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to "Sign In", new_student_session_path %>
   <% end %>
 <% end %>
-
+  </li>
+</ul>

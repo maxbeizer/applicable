@@ -8,7 +8,7 @@ Feature: Update Application
     And I am signed in
     And I click "Begin"
     And I fill in all the fields
-    And I click "Submit Application"
+    And I click "Update Application"
     When I click "revise this answer"
     Then I should see the title "Edit Your Application"
     When I fill in "Eliza" for "First Name"

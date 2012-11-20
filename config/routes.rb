@@ -1,11 +1,9 @@
 Applicable::Application.routes.draw do
-  devise_for :users
+  devise_for :students
 
   root to: "public#index"
 
-  resources :users do
-    resources :student_applications
-  end
+  resource :student, :only => [:edit, :update, :show], :controller => :student
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

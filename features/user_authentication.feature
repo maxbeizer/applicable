@@ -1,12 +1,12 @@
-Feature: User authentication
+Feature: student authentication
 
-  Scenario: Signed out users see appropriate links
+  Scenario: Signed out students see appropriate links
     Given I am on the homepage
     Then I should see "Sign In"
     And I should see "Sign Up"
     And I should not see "Sign Out"
 
-  Scenario: Signed in users see appropriate links
+  Scenario: Signed in students see appropriate links
     Given I am signed in
     And I am on the homepage
     Then I should see "Sign Out"
@@ -32,7 +32,7 @@ Feature: User authentication
     Then I should see "Password doesn't match confirmation"
 
   Scenario: Logging in
-    Given there is a user "eliza@example.com" with password "foobar"
+    Given there is a student "eliza@example.com" with password "foobar"
     When I go to the homepage
     And I click "Sign In"
     And I fill in "eliza@example.com" for "Email"
@@ -41,7 +41,7 @@ Feature: User authentication
     Then I should see "Signed in successfully."
 
   Scenario: Logging in with incorrect password
-    Given there is a user "eliza@example.com" with password "notfoobar"
+    Given there is a student "eliza@example.com" with password "notfoobar"
     When I go to the homepage
     And I click "Sign In"
     And I fill in "eliza@example.com" for "Email"
