@@ -21,7 +21,7 @@ class StudentController < ApplicationController
   def complete
     StudentMailer.completion_email(@student).deliver
     flash[:notice] = "Your application is complete"
-    redirect_to :root
+    render 'student/complete'
   end
 
   private

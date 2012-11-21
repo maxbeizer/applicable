@@ -10,5 +10,7 @@ Feature: Student completes application
     And I fill in all the fields
     When I click "Update Application"
     Then I click "complete application"
-    Then "user@example.com" should receive 1 email
-    Then I should see "Your application is complete"
+    And "user@example.com" should receive 1 email
+    And I should see "Your application is complete"
+    And I should see the title "Thank You for Applying!"
+    And I should see "Sign Out"
