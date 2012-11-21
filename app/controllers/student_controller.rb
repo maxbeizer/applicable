@@ -18,6 +18,12 @@ class StudentController < ApplicationController
     end
   end
 
+  def complete
+    StudentMailer.completion_email(@student).deliver
+    flash[:notice] = "Your application is complete"
+    redirect_to :root
+  end
+
   private
   def assign_student
     @student = current_student

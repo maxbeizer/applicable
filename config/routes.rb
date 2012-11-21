@@ -3,7 +3,11 @@ Applicable::Application.routes.draw do
 
   root to: "public#index"
 
-  resource :student, :only => [:edit, :update, :show], :controller => :student
+  resource :student, :only => [:edit, :update, :show], :controller => :student do
+    member do
+      get :complete
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
