@@ -1,5 +1,5 @@
 class StudentMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "nashsoftwareschool@gmail.com"
 
   def completion_email(student)
     @student = student
