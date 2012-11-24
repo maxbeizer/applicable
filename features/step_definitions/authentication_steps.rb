@@ -16,6 +16,11 @@ Given /^I am signed in$/ do
   sign_in_as @student
 end
 
+Given /^I am signed in as an admin$/ do
+  @admin_user = Fabricate(:admin_user)
+  admin_sign_in @admin_user
+end
+
 Given /^I am not signed in$/ do
   delete destroy_student_session_path
 end
@@ -33,5 +38,14 @@ def sign_in_as student
     And I fill in "password" for "Password"
     And I click "Sign in"
     Then I should see "Signed in successfully."
+  }
+end
+
+def admin_sign_in admin_user
+  steps %Q{
+    Given I am on /admin/login
+    And I fill in "#{admin_user.email}" for "Email"
+    And I fill in "password" for "Password"
+    When I click "Login"
   }
 end
