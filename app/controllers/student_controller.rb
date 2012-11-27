@@ -1,6 +1,11 @@
 class StudentController < ApplicationController
-  before_filter :authenticate_student!
+  before_filter :authenticate_student!, :except => [:index, :show]
   before_filter :assign_student
+  before_filter :authenticate_admin_user!, :only => [:index]
+
+  def index
+    @students = Student.all
+  end
 
   def show
   end

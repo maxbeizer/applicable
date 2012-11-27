@@ -6,6 +6,8 @@ def path_to(page_name)
     admin_user_session_path
   when "/admin"
     admin_root_path
+  when "/students"
+    students_path
   else
     raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
       "Now, go and add a mapping in #{__FILE__}"
