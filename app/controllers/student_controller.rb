@@ -16,7 +16,7 @@ class StudentController < ApplicationController
   def update
     if @student.update_attributes(params[:student])
       flash[:notice] = "Your application has been updated"
-      redirect_to student_path(@student)
+      redirect_to student_path
     else
       flash[:alert] = "Your application has not been updated"
       render action: "edit"
@@ -31,6 +31,6 @@ class StudentController < ApplicationController
 
   private
   def assign_student
-    @student = current_student
+    params[:id] ? @student = Student.find(params[:id]) : @student = current_student
   end
 end

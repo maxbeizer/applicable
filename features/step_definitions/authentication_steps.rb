@@ -6,6 +6,10 @@ Given /^there is a student "(.*?)" with password "(.*?)"$/ do |email, password|
   @student = Fabricate(:student, email: email, password: password, password_confirmation: password)
 end
 
+Given /^there is a student with the name "(.*?)"$/ do |first_name|
+  @student = Fabricate(:student, first_name: first_name)
+end
+
 Given /^I am signed in as "(.*?)"$/ do |email|
   @student = Fabricate(:student, email: email)
   sign_in_as @student

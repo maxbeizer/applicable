@@ -15,7 +15,7 @@ Applicable::Application.routes.draw do
 
   match '/students' => 'student#index'
 
-  resources :student, :only => [:show]
+  resources :student, :only => [:show], :as => :applicant
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

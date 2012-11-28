@@ -4,7 +4,7 @@
   <dd><a href="#simple3">Technology</a></dd>
   <dd><a href="#simple4">Finishing Up</a></dd>
 </dl>
-<%= simple_form_for(current_student) do |f|  %>
+<%= simple_form_for(current_student, :url => student_path) do |f|  %>
 <ul class="tabs-content">
   <li class="active" id="simple1Tab">
     <div class="row">
