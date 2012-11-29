@@ -1,6 +1,6 @@
 /* Artfully masterminded by ZURB  */
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
@@ -58,7 +58,9 @@ footer {
 
 footer a {color: #fff; }
 
-#copyright {padding: 17px 0;}
+div.admin-link {padding: 17px;}
+
+div.footer-info {padding: 17px;}
 
 /*Opera Fix*/
 body:before {

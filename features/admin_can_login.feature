@@ -3,6 +3,11 @@ Feature: Admins can see the admin dashboard
   As an admin
   I want to be able to see the admin dashboard with the students
 
+  Scenario: As an admin user, I can login
+    Given I am on the homepage
+    When I click "Admin"
+    Then I should be on /admin/login
+
   Scenario: As an admin user, I can see the admin dashboard
     Given I am signed in as an admin
     When I go to /admin/login
