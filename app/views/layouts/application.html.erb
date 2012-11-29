@@ -65,9 +65,12 @@
   <div class="twelve columns">
     <div class="container row">
       <div class="left">
-        <h5><a href="#">Applicable: An NSS Application App</a></h5>
+        <h5><%= link_to "Applicable: An NSS Application App", :root %></h5>
       </div>
-      <div id="copyright" class="right">&copy; 2012</div>
+      <div class="right admin-link button radius"><%= link_to "Admin", admin_dashboard_path %></div>
+      <div class="right footer-info">
+        <div id="copyright">&copy; 2012</div>
+      </div>
     </div>
   </div>
   </footer>
