@@ -9,7 +9,7 @@
 
         <li>You have an aptitude for technical work in general and programming specifically.</li>
 
-        <li>You have a logical mind & enjoy solving complex problems: Good math skills may be an indicator of aptitude but so could mastery of a musical instrument and knowledge of music theory and experience playing in a band.</li>
+        <li>You have a logical mind and enjoy solving complex problems: Good math skills may be an indicator of aptitude but so could mastery of a musical instrument and knowledge of music theory and experience playing in a band.</li>
 
         <li>You have solid written and verbal communication skills.</li>
 
@@ -26,7 +26,7 @@
         <li>You have a high school diploma or the equivalent.</li>
       </ul>
       <%- if student_signed_in? %>
-        <%= link_to "Begin", edit_student_path(current_student), class: "radius button twelve columns centered" %>
+        <%= link_to "Begin", edit_student_path, class: "radius button twelve columns centered" %>
       <%- else  %>
         <%= link_to "Sign Up", new_student_registration_path, class: "radius button twelve columns centered" %>
       <%- end  %>

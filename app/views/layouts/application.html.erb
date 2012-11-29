@@ -36,10 +36,12 @@
         </ul>
         <ul class="right">
           <%- if student_signed_in? %>
-              <li class="signed-in-as">Signed in as <%= current_student.email %></li>
-              <li><%= link_to "Sign Out", destroy_student_session_path, method: :delete %></li>
+            <li class="signed-in-as">Signed in as <%= current_student.email %></li>
+            <li><%= link_to "Sign Out", destroy_student_session_path, method: :delete %></li>
+          <%- elsif admin_user_signed_in? %>
+            <li><%= link_to "Back to Admin Panel", admin_dashboard_path %></li>
           <%- else %>
-              <li><%= link_to "Sign Up", new_student_registration_path %></li>
+            <li><%= link_to "Sign Up", new_student_registration_path %></li>
             <li><%= link_to "Sign In", new_student_session_path %></li>
           <%- end %>
         </ul>

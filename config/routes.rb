@@ -1,13 +1,22 @@
 Applicable::Application.routes.draw do
-  devise_for :students
-
-  root to: "public#index"
-
   resource :student, :only => [:edit, :update, :show], :controller => :student do
     member do
       get :complete
     end
   end
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :students
+
+  root to: "public#index"
+
+  match '/students' => 'student#index'
+
+  resources :student, :only => [:show], :as => :applicant
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
