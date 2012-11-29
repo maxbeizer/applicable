@@ -3,8 +3,8 @@ ActionMailer::Base.smtp_settings = {
                                     :address => "smtp.gmail.com",
                                     :port => 587,
                                     :domain => "gmail.com",
-                                    :user_name => "nashsoftwareschool",
-                                    :password => "railstest",
+                                    :user_name => ENV['GMAIL_KEY'],
+                                    :password => ENV['GMAIL_SECRET'],
                                     :authentication => :plain}
 
 require 'development_mail_interceptor'

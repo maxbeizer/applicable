@@ -14,3 +14,6 @@
 /log/*.log
 /tmp
 config/database.yml
+
+# Ignore .env to keep congfig vars private
+/.env
