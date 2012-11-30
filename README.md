@@ -14,7 +14,7 @@ also pick up this project and make it better for the next generation.
 <ul>
   <li>The school can design application for prospective students</li>
   <li>Multi-page application instead of one long series of questions</li>
-  <li>Persistence of data in browser<li>
+  <li>Persistence of data in browser</li>
   <li>Email sent to application owner</li>
 </ul>
 
@@ -27,6 +27,7 @@ also pick up this project and make it better for the next generation.
 <h3>Wish List</h3>
 <ul>
   <li>Admin can convert applications to PDF</li>
+  <li>Admin can archive past applicants</li>
   <li>Prospective students can link application to other profiles</li>
   <li>Application features that test aptitude through tests/puzzles</li>
   <li>Anything other than solely basic application text input (something expressive)</li>
