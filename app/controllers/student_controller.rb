@@ -20,6 +20,7 @@ class StudentController < ApplicationController
 
   def complete
     StudentMailer.completion_email(@student).deliver
+    StudentMailer.new_applicant_email(@student).deliver
     flash[:notice] = "Your application is complete"
     render 'student/complete'
   end
