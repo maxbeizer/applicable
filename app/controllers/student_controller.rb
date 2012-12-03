@@ -8,6 +8,15 @@ class StudentController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = StudentPdf.new(@student, view_context)
+        send_data pdf.render, filename:
+        "student_#{@student.last_name}.pdf",
+        type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   def edit
