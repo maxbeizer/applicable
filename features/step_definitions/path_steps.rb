@@ -6,6 +6,8 @@ def path_to(page_name)
     admin_user_session_path
   when "/admin"
     admin_root_path
+  when "/admin/dashboard"
+    admin_dashboard_path
   when "/students"
     students_path
   else

@@ -9,6 +9,13 @@ Feature: Admins can see index of students and link to show page
     When I go to /students
     Then I should see "All Current Applicants"
 
+  Scenario: Admin user can view students list from dashboard
+    Given I am signed in as an admin
+    And I am on /admin/dashboard
+    When I click "See All Students"
+    Then I should be on /students
+    And I should see "All Current Applicants"
+
   Scenario: As student I should not be able to view an index of all students
     Given I am signed in
     When I go to /students
