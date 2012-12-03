@@ -53,8 +53,17 @@
     <div id="main">
       <div class="container row">
         <div class="twelve columns">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <%- if notice %>
+            <div class="notice alert-box">
+              <%= notice %>
+              <a href="" class="close">&times;</a>
+            </div>
+          <%- elsif alert %>
+            <div class="alert alert-box">
+              <%= alert %>
+              <a href="" class="close">&times;</a>
+            </div>
+          <%- end %>
           <%= yield %>
         </div>
       </div>
