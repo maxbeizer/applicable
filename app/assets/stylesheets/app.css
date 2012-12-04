@@ -37,6 +37,8 @@ label {font-weight:bold;}
 
 .input {padding: 20px 0;}
 
+form#new_student div.input {padding: 0;}
+
 .six select {
   width:32%;
   margin-top: 5px;
