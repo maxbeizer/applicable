@@ -11,4 +11,8 @@ class Student < ActiveRecord::Base
                   :video, :program_selection, :seeking_job,
                   :scholarship, :location, :commitments,
                   :awareness, :anything_else
+
+  def name
+    first_name.nil? ? email : [first_name, last_name].join(" ")
+  end
 end

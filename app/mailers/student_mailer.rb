@@ -10,6 +10,6 @@ class StudentMailer < ActionMailer::Base
   def new_applicant_email(student)
     @student = student
     @url  = "http://applicable.herokuapp.com/students"
-    mail(:to => "nashsoftwareschool@gmail.com", :subject => "#{student.email} has applied to NSS")
+    mail(:to => "nashsoftwareschool@gmail.com", :subject => "#{student.name} has applied to NSS")
   end
 end
