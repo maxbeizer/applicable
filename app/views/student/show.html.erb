@@ -18,8 +18,8 @@
     <%= link_to "revise this answer", edit_student_path unless admin_user_signed_in? %>
   </p>
 <%- end %>
-<%- if !admin_user_signed_in? %>
-  <%= link_to "complete application", complete_student_path, class: "radius button twelve columns centered" %>
-<%- else %>
+<%- if admin_user_signed_in? %>
   <%= link_to "Download as PDF", applicant_path(format: 'pdf'), class: "radius button twelve columns centered" %>
+<%- else %>
+  <%= link_to "complete application", complete_student_path, class: "radius button twelve columns centered" %>
 <%- end %>

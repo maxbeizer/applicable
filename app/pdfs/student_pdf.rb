@@ -4,7 +4,7 @@ class StudentPdf < Prawn::Document
     super()
     @student = student
 
-    text "#{@student.first_name} #{@student.last_name}"
+    text "#{@student.name}"
     text "#{@student.email}"
     text "Phone: #{@student.phone}"
     text "DOB: #{@student.date_of_birth}"
