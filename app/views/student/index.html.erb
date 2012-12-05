@@ -1,5 +1,5 @@
 <h2>All Current Applicants</h2>
 <%- @students.each do |student| %>
-  <p><%= link_to "#{student.name}, applicant_path(student) %></p>
+  <p><%= link_to student.name, applicant_path(student) %></p>
 <%- end %>
 

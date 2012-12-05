@@ -29,7 +29,7 @@ Feature: student authentication
     And I fill in "foobar" for "Password"
     And I fill in "notfoobar" for "Password confirmation"
     And I click "Sign up"
-    Then I should see "Password doesn't match confirmation"
+    Then I should see "doesn't match confirmation"
 
   Scenario: Logging in
     Given there is a student "eliza@example.com" with password "foobar"
