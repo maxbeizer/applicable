@@ -25,8 +25,7 @@
 </head>
 <body>
   <header>
-  <div class="container top-bar home-border">
-    <div class="twelve columns">
+  <div class="row">
       <nav class="top-bar">
         <ul>
           <li class="name">
@@ -34,6 +33,7 @@
           </li>
           <li class="toggle-topbar"><a href="#"></a></li>
         </ul>
+        <section>
         <ul class="right">
           <%- if student_signed_in? %>
             <li class="signed-in-as">Signed in as <%= current_student.email %></li>
@@ -45,8 +45,8 @@
             <li><%= link_to "Sign In", new_student_session_path %></li>
           <%- end %>
         </ul>
+        </section>
       </nav>
-    </div>
   </div>
   </header>
   <div id="wrap">

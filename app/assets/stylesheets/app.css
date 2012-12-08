@@ -85,4 +85,18 @@ body:before {
    Page Name 2
 ----------------------------------------- */
 
+@media only screen and (max-width: 767px) {
+  footer div.twelve.columns, footer div.container.row {height: 50px;}
 
+  div.admin-link {
+    float: right;
+    position: relative;
+    bottom: 46px;
+  }
+
+  div.footer-info {
+    float: right;
+    position: relative;
+    bottom: 46px;
+  }
+}
