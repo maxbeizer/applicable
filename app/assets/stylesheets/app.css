@@ -14,6 +14,8 @@
 ----------------------------------------- */
 html, body {height: 100%;}
 
+header, nav.top-bar {background: #000;}
+
 #wrap {min-height: 100%;}
 
 #main {
