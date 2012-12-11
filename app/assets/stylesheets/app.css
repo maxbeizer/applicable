@@ -14,7 +14,10 @@
 ----------------------------------------- */
 html, body {height: 100%;}
 
-header, nav.top-bar {background: #000;}
+header, nav.top-bar {
+  background: #000;
+  margin: 0;
+}
 
 #wrap {min-height: 100%;}
 
