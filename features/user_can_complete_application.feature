@@ -6,7 +6,6 @@ Feature: Student completes application
   Scenario: Happy Path
     Given I am on the homepage
     And I am signed in as "user@example.com"
-    And I click "Begin"
     And I fill in all the fields
     When I click "Update Application"
     Then I click "complete application"

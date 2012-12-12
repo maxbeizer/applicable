@@ -8,8 +8,7 @@ Feature: Homepage
 
   Scenario: Happy Path
     Given I am signed in as "user1@example.com"
-    Then I should see the title "Apply for NSS!"
-    And I should see "Begin"
+    Then I should see the title "Edit Your Application"
 
   Scenario: No begin button if you're not signed in
     Given I am not signed in

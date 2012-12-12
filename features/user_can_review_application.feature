@@ -6,7 +6,6 @@ Feature: Review Application
   Scenario: Happy Path
     Given I am on the homepage
     And I am signed in
-    And I click "Begin"
     And I fill in all the fields
     When I click "Update Application"
     Then I should see the title "Review Your Application"

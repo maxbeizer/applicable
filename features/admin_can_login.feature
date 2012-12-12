@@ -10,9 +10,8 @@ Feature: Admins can see the admin dashboard
 
   Scenario: As an admin user, I can see the admin dashboard
     Given I am signed in as an admin
-    When I go to /admin/login
-    Then I should be on /admin
-    And I should see "Dashboard"
+    When I go to /admin
+    Then I should see "Dashboard"
 
   Scenario: As a regular user who is signed in, I am redirected admin login
     Given I am signed in

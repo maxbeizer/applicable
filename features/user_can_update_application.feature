@@ -6,7 +6,6 @@ Feature: Update Application
   Scenario: Happy Path
     Given I am on the homepage
     And I am signed in
-    And I click "Begin"
     And I fill in all the fields
     And I click "Update Application"
     When I click "revise this answer"
