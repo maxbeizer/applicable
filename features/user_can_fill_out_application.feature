@@ -8,8 +8,6 @@ Feature: Fill Out Application
 
   Scenario: Happy Path
     Given I am signed in
-    Then I should see the title "Apply for NSS!"
-    When I click "Begin"
     Then I should see the title "Edit Your Application"
     When I fill in all the fields
     And I click "Update Application"
