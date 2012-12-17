@@ -15,4 +15,9 @@ class Student < ActiveRecord::Base
   def name
     first_name.nil? ? email : [first_name, last_name].join(" ")
   end
+
+  def archive
+    self.archived = true
+    self.save!
+  end
 end

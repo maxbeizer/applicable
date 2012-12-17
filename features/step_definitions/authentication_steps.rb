@@ -10,6 +10,10 @@ Given /^there is a student with the name "(.*?)"$/ do |first_name|
   @student = Fabricate(:student, first_name: first_name)
 end
 
+Given /^there is an archived student with the name "(.*?)"$/ do |first_name|
+  @student = Fabricate(:student, first_name: first_name, archived: true)
+end
+
 Given /^I am signed in as "(.*?)"$/ do |email|
   @student = Fabricate(:student, email: email)
   sign_in_as @student

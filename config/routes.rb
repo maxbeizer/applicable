@@ -15,6 +15,8 @@ Applicable::Application.routes.draw do
 
   match '/students' => 'student#index'
 
+  match 'student/:id/archived', :as => 'archive_student', :to => 'student#archive'
+
   resources :student, :only => [:show], :as => :applicant
 
   # The priority is based upon order of creation:

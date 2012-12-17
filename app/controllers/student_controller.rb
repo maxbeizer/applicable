@@ -1,9 +1,10 @@
 class StudentController < ApplicationController
-  before_filter :authenticate_student!, :except => [:index, :show]
+  before_filter :authenticate_student!, :except => [:index, :show, :archive]
   before_filter :assign_student
-  before_filter :authenticate_admin_user!, :only => [:index]
+  before_filter :authenticate_admin_user!, :only => [:index, :archive]
 
   def index
+    @active_students = Student.where("archived = ?", false)
     @students = Student.all
   end
 
@@ -37,6 +38,11 @@ class StudentController < ApplicationController
     StudentMailer.new_applicant_email(@student).deliver
     flash[:notice] = "Your application is complete"
     render 'student/complete'
+  end
+
+  def archive
+    @student.archive
+    redirect_to "/students"
   end
 
   private

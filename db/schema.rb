@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121214450) do
+ActiveRecord::Schema.define(:version => 20121217200421) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20121121214450) do
     t.string   "commitments"
     t.text     "awareness"
     t.text     "anything_else"
+    t.boolean  "archived"
   end
 
   add_index "students", ["email"], :name => "index_students_on_email", :unique => true

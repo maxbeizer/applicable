@@ -18,8 +18,9 @@
     <%= link_to "revise this answer", edit_student_path unless admin_user_signed_in? %>
   </p>
 <%- end %>
-<%- if admin_user_signed_in? %>
+<%- if admin_user_session %>
   <%= link_to "Download as PDF", applicant_path(format: 'pdf'), class: "radius button twelve columns centered" %>
+  <%= button_to "Archive This Student", archive_student_path(@student), class: "radius button twelve columns centered" %>
 <%- else %>
   <%= link_to "complete application", complete_student_path, class: "radius button twelve columns centered" %>
 <%- end %>
