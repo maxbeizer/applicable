@@ -21,6 +21,9 @@
 <%- if admin_user_session %>
   <%= link_to "Download as PDF", applicant_path(format: 'pdf'), class: "radius button twelve columns centered" %>
   <%= button_to "Archive This Student", archive_student_path(@student), class: "radius button twelve columns centered" %>
+  <%= link_to "Delete This Student", delete_student_path(@student), method: :delete,
+                                     class: "radius button twelve columns alert centered",
+                                     data: { confirm: "Are you sure?" } %>
 <%- else %>
   <%= link_to "complete application", complete_student_path, class: "radius button twelve columns centered" %>
 <%- end %>

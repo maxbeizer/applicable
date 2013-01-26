@@ -19,6 +19,12 @@ Applicable::Application.routes.draw do
 
   resources :student, :only => [:show], :as => :applicant
 
+  # I think the problem here is that the student controller should be students
+  # and the associated resourceful route should be resources.  This is why we
+  # have to explicitly match the index and destroy actions
+
+  match 'student/:id', :as => 'delete_student', :to => 'student#destroy', :via => :delete
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
