@@ -5,13 +5,14 @@ Applicable::Application.routes.draw do
     end
   end
 
+  root to: "public#index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :students
 
-  root to: "public#index"
 
   match '/students' => 'student#index'
 
