@@ -1,10 +1,4 @@
 Applicable::Application.routes.draw do
-  resource :student, :only => [:edit, :update, :show], :controller => :student do
-    member do
-      get :complete
-    end
-  end
-
   root to: "public#index"
 
   ActiveAdmin.routes(self)
@@ -13,16 +7,13 @@ Applicable::Application.routes.draw do
 
   devise_for :students
 
+  resources :students
 
   match '/students' => 'student#index'
 
   match 'student/:id/archived', :as => 'archive_student', :to => 'student#archive'
 
   resources :student, :only => [:show], :as => :applicant
-
-  # I think the problem here is that the student controller should be students
-  # and the associated resourceful route should be resources.  This is why we
-  # have to explicitly match the index and destroy actions
 
   match 'student/:id', :as => 'delete_student', :to => 'student#destroy', :via => :delete
 

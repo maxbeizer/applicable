@@ -32,7 +32,7 @@
       </div>
 
       <% if student_signed_in? %>
-        <%= f.submit submit_text, class: 'radius button twelve columns centered' %>
+        <%= f.submit 'Save Your Info', class: 'radius button twelve columns centered' %>
       <% else %>
         <%= link_to "Sign In", new_student_session_path %>
       <% end %>
