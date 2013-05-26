@@ -48,7 +48,7 @@ Spork.prefork do
 
     #config.include Devise::TestHelpers, :type => :controller
     #config.include Applicable::ControllerSpecHelper, :type => :controller
-    #config.include Applicable::IntegrationSpecHelper, :type => :feature
+    config.include Applicable::IntegrationSpecHelper, :type => :feature
   end
 end
 

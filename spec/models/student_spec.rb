@@ -2,19 +2,19 @@ require 'spec_helper'
 
 describe Student do
   describe "instance methods" do
-    let(:student) { Fabricate(:student) }
+    let(:student) { FactoryGirl.create(:student, :email => 'student@example.com') }
 
     describe "#name" do
       context "with first name" do
         it "returns the full name" do
-          expect(student.name).to eq("first_name last_name")
+          expect(student.name).to eq("Joan Doe")
         end
       end
 
       context "without first name" do
         it "returns the user's email" do
           student.first_name = nil
-          expect(student.name).to eq("student1@example.com")
+          expect(student.name).to eq("student@example.com")
         end
       end
     end
