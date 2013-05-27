@@ -6,6 +6,8 @@ class Student < ActiveRecord::Base
                   :first_name, :last_name, :phone,
                   :date_of_birth, :twitter, :personal_url
 
+  has_many :applications, :dependent => :destroy
+
   before_create :remove_at_sign_from_twitter
 
   def name

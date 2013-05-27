@@ -19,6 +19,12 @@ describe "Student Profile" do
     end
   end
 
+  describe "applications" do
+    it "displays link to my application" do
+      expect(page).to have_content('Go to Your Application')
+    end
+  end
+
   describe "edit profile" do
     before :each do
       click_link "Edit"

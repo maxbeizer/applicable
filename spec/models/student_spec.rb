@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Student do
+  describe "associtations" do
+    it { should have_many(:applications).dependent(:destroy) }
+  end
+
   describe "instance methods" do
     let(:student) { FactoryGirl.create(:student, :email => 'student@example.com') }
 
