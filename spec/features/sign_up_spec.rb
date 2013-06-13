@@ -1,3 +1,5 @@
+require "spec_helper"
+
 describe "Sign Up" do
   describe "student" do
     it "lets me register for Applicable" do

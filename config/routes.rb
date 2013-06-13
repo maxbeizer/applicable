@@ -7,7 +7,9 @@ Applicable::Application.routes.draw do
 
   devise_for :students
 
-  resources :students
+  resources :students do
+    resources :applications
+  end
 
   match '/students' => 'student#index'
 

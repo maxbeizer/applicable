@@ -1,3 +1,5 @@
+require "spec_helper"
+
 describe "Sign in to Applicable" do
   let!(:student) { FactoryGirl.create(:student, :email => 'email@example.com', :password => 'asdfasdf', :password_confirmation => 'asdfasdf') }
 

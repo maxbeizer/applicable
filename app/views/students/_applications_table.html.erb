@@ -1,0 +1,21 @@
+<section id="student-applications-table" class="panel">
+  <% if student.applications.any? %>
+    <h3 class="text-center">Your Applications</h3>
+    <table class="large centered columns">
+      <tr>
+        <th>Program Selection</th>
+        <th>Last Modified</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <% student.applications.select(&:persisted?).each do |application| %>
+        <tr>
+          <td><%= application.program_selection %></td>
+          <td><%= application.updated_at.strftime("%B %-d, %Y") %></td>
+          <td><%= link_to "Edit", edit_student_application_path(student, application) %></td>
+          <td><%= link_to "Delete", student_application_path(student, application), :method => :delete, :confirm => "Are you sure? Deleting this application can not be undone." %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</section>

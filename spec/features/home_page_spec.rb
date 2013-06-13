@@ -1,5 +1,7 @@
+require 'spec_helper'
+
 describe 'Homepage' do
-  let(:student) { Fabricate(:student) }
+  let(:student) { FactoryGirl.create(:student) }
 
   describe 'when not logged in' do
     it 'tells me to sign up' do

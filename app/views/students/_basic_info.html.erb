@@ -1,0 +1,34 @@
+<section>
+  <div class="row review">
+    <div class="six columns">
+      <h3><%= label_tag "Your Name" %></h3>
+      <h3><%= student.name  if student.first_name %></h3>
+    </div>
+    <div class="six columns">
+      <h3><%= label_tag "Your Email" %></h3>
+      <h3><%= student.email %></h3>
+    </div>
+  </div>
+
+  <div class="row review">
+    <div class="six columns">
+      <%= label_tag "Phone" %>
+      <%= student.phone if student.phone %>
+    </div>
+    <div class="six columns">
+      <%= label_tag "Date of Birth" %>
+      <%= student.date_of_birth.strftime("%B %-d, %Y") if student.date_of_birth %>
+    </div>
+  </div>
+
+  <div class="row review">
+    <div class="six columns">
+      <%= label_tag "Twitter Handle" %>
+      <%= student.twitter if student.twitter %>
+    </div>
+    <div class="six columns">
+      <%= label_tag "Personal URL" %>
+      <%= link_to student.personal_url, url_with_protocol(student.personal_url) if student.personal_url %>
+    </div>
+  </div>
+</section>

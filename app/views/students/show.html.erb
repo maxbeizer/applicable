@@ -1,55 +1,13 @@
 <h2>Review Your Info:</h2>
-<div class="row review">
-  <div class="six columns">
-    <h3><%= label_tag "Your Name" %></h3>
-    <h3><%= student.name  if student.first_name %></h3>
-  </div>
-  <div class="six columns">
-    <h3><%= label_tag "Your Email" %></h3>
-    <h3><%= student.email %></h3>
-  </div>
-</div>
+<%= render 'basic_info' %>
 
-<div class="row review">
-  <div class="six columns">
-    <%= label_tag "Phone" %>
-    <%= student.phone if student.phone %>
-  </div>
-  <div class="six columns">
-    <%= label_tag "Date of Birth" %>
-    <%= student.date_of_birth.strftime("%B %-d, %Y") if student.date_of_birth %>
-  </div>
-</div>
+<%= render 'applications_table' %>
 
-<div class="row review">
-  <div class="six columns">
-    <%= label_tag "Twitter Handle" %>
-    <%= student.twitter if student.twitter %>
-  </div>
-  <div class="six columns">
-    <%= label_tag "Personal URL" %>
-    <%= link_to student.personal_url, url_with_protocol(student.personal_url) if student.personal_url %>
-  </div>
+<div class="row">
 </div>
 
 <div class="row">
-  <% if student.applications.any? %>
-    <%= student.applications.each do |application| %>
-      <table>
-        <tr>
-          <td><%= application.created_at.strftime("%B %-d, %Y") %></td>
-          <td><%= application.program_selection %></td>
-        </tr>
-      </table>
-    <% end %>
-  <% end %>
-</div>
-
-<div class="row">
-  <%= link_to "Go to Your Application", edit_student_path(student), class: "radius button two columns" %>
-</div>
-
-<div class="row">
-  <%= link_to "Edit This Info", edit_student_path(student), class: "radius button two columns" %>
-  <%= link_to "Delete Your Account", student_registration_path, :method => :delete, :confirm => 'Are you sure? This will delete your account and all associated applications.', :class => "radius button alert two columns"%>
+  <%= link_to "Start a New Application", new_student_application_path(student), class: "large radius button" %>
+  <%= link_to "Edit This Info", edit_student_path(student), class: "large secondary radius button" %>
+  <%= link_to "Delete Your Account", student_registration_path, :method => :delete, :confirm => 'Are you sure? This will delete your account and all associated applications.', :class => "large alert radius button"%>
 </div>

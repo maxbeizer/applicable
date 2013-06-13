@@ -1,3 +1,5 @@
+require "spec_helper"
+
 describe "Student Profile" do
   let(:student) { FactoryGirl.create(:student) }
 
@@ -20,8 +22,44 @@ describe "Student Profile" do
   end
 
   describe "applications" do
-    it "displays link to my application" do
-      expect(page).to have_content('Go to Your Application')
+    it "displays link to start a new application" do
+      expect(page).to have_content('Start a New Application')
+    end
+
+    context "with a persisted application" do
+      describe "a table" do
+        let!(:application) { FactoryGirl.create(:application, :student => student) }
+
+        before :each do
+          visit student_path student
+        end
+
+        it "displays my application" do
+          expect(page).to have_content('Your Applications')
+        end
+
+        it "allows me to edit my application" do
+          click_link 'Edit'
+          expect(page.current_path).to eq("/students/#{student.id}/applications/#{application.id}/edit")
+        end
+
+        it "allows me to delete my application" do
+          expect { click_link 'Delete' }.to change { student.applications.count }.by(-1)
+        end
+      end
+    end
+
+    context "with multiple persisted applications" do
+      describe "a table" do
+        let!(:application_one) { FactoryGirl.create(:application, :student => student, :program_selection => 'bogus one') }
+        let!(:application_two) { FactoryGirl.create(:application, :student => student, :program_selection => 'bogus two') }
+
+        it "displays my applications" do
+          visit student_path student
+          expect(page).to have_content('bogus one')
+          expect(page).to have_content('bogus two')
+        end
+      end
     end
   end
 
@@ -38,7 +76,16 @@ describe "Student Profile" do
       fill_in "First Name", :with => "New Name"
       click_button "Save"
       expect(page).to have_content("New Name")
+      expect(page).to have_content("You have successfully saved your info")
     end
+
+    #TODO adds some validations already. yeesh
+    #it "alerts me to errors with my update" do
+      #fill_in "First Name", :with => ""
+      #click_button "Save"
+      #expect(page).to have_content("There was an error updating your info")
+      #expect(page.current_path).to eq('/students/1/edit/')
+    #end
   end
 
   describe "delete account" do
