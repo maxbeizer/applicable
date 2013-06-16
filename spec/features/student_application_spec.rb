@@ -22,7 +22,7 @@ describe "Student Application" do
       it "allows me to complete my application" do
         fill_in_application
         click_button "Finish"
-        expect(page).to have_content("You have sucessfully")
+        expect(page).to have_content("You have successfully")
       end
 
       it "associates my application with me" do
@@ -34,18 +34,64 @@ describe "Student Application" do
     end
 
     describe "update my application" do
-      it "allows me to update an existing application", :focus => true do
+      context "success" do
+        before :each do
+          application.student = student
+          student.applications << application
+          visit student_path student
+          within '#student-applications-table' do
+            click_link "Edit"
+          end
+          fill_in("Employment History", :with => "bogus")
+          click_button "Finish"
+          application.reload
+        end
+
+        it "updates an existing application" do
+          expect(application.employment_history).to eq('bogus')
+        end
+
+        it "sets the sucess flash" do
+          expect(page).to have_content('You have successfully')
+        end
+
+        it "redirects to my profile page" do
+          expect(page.current_path).to eq("/students/#{student.id}")
+        end
+      end
+
+      context "failure" do
+        #in need of some validations to produce unsuccessful update
+      end
+    end
+
+    describe "delete my application" do
+      before :each do
         application.student = student
         student.applications << application
         visit student_path student
+      end
+
+      it "deletes an existing application" do
+        expect{
+          within '#student-applications-table' do
+            click_link "Delete"
+          end
+        }.to change{ student.applications.count }.by(-1)
+      end
+
+      it "sets flash success" do
         within '#student-applications-table' do
-          click_link "Edit"
+          click_link "Delete"
         end
-        fill_in("Employment History", :with => "bogus")
-        click_button "Finish"
-        application.reload
-        expect(application.employment_history).to eq('bogus')
-        expect(page).to have_content('You have sucessfully')
+        expect(page).to have_content('Your application has been successfully deleted')
+      end
+
+      it "redirects to my profile" do
+        within '#student-applications-table' do
+          click_link "Delete"
+        end
+        expect(page.current_path).to eq("/students/#{student.id}")
       end
     end
   end

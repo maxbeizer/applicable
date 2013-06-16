@@ -11,7 +11,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = student.applications.build params[:application]
     if @application.save
-      flash[:notice] = "You have sucessfully completed your application"
+      flash[:notice] = "You have successfully completed your application"
       redirect_to student_url student
     else
      flash[:alert] = "There was a problem completing your application" 
@@ -24,7 +24,7 @@ class ApplicationsController < ApplicationController
 
   def update
     if application.update_attributes params[:application]
-      flash[:notice] = "You have sucessfully updated your application"
+      flash[:notice] = "You have successfully updated your application"
       redirect_to student_url student
     else
      flash[:alert] = "There was a problem updating your application" 
