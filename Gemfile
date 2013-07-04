@@ -6,7 +6,6 @@ gem "pg"
 gem "simple_form"
 gem "activeadmin"
 gem "meta_search",    ">= 1.1.0.pre"
-gem "prawn"
 gem "jquery-rails"
 gem 'thin'
 
@@ -26,7 +25,6 @@ group :development do
   gem "guard-rspec"
   gem "guard-spork"
   gem "rb-fsevent", :require => false
-  gem "growl"
   gem "better_errors"
   gem "binding_of_caller"
 end
