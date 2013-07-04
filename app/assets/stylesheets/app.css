@@ -80,9 +80,16 @@ body:before {
 
 
 /* -----------------------------------------
-   Students Show
 ----------------------------------------- */
-div.review { padding: 20px 0; }
+.orbit-slide {
+  text-align: center;
+  padding: 2.1em 2em 2em;
+}
+
+.orbit-slide p {
+  font-size: 1.2em;
+  padding-top: .5em;
+}
 
 
 
