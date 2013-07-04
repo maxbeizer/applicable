@@ -1,0 +1,13 @@
+<h2>Review Your Info:</h2>
+<%= render 'basic_info' %>
+
+<%= render 'applications_table' %>
+
+<div class="row">
+</div>
+
+<div class="row">
+  <%= link_to "Start a New Application", new_student_application_path(student), class: "large radius button" %>
+  <%= link_to "Edit This Info", edit_student_path(student), class: "large secondary radius button" %>
+  <%= link_to "Delete Your Account", student_registration_path, :method => :delete, :confirm => 'Are you sure? This will delete your account and all associated applications.', :class => "large alert radius button"%>
+</div>

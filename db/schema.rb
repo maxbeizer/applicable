@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126204019) do
+ActiveRecord::Schema.define(:version => 20130526185445) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,27 @@ ActiveRecord::Schema.define(:version => 20130126204019) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "applications", :force => true do |t|
+    t.integer  "student_id"
+    t.text     "employment_history"
+    t.string   "employment_status"
+    t.text     "application_reason"
+    t.text     "tech_background"
+    t.text     "tech_story"
+    t.text     "site_critique"
+    t.text     "discovery"
+    t.string   "video"
+    t.string   "program_selection"
+    t.string   "seeking_job"
+    t.string   "scholarship"
+    t.string   "location"
+    t.string   "commitments"
+    t.text     "awareness"
+    t.text     "anything_else"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "students", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
@@ -65,21 +86,6 @@ ActiveRecord::Schema.define(:version => 20130126204019) do
     t.date     "date_of_birth"
     t.string   "twitter"
     t.string   "personal_url"
-    t.text     "employment_history"
-    t.string   "employment_status"
-    t.text     "application_reason"
-    t.text     "tech_background"
-    t.text     "tech_story"
-    t.text     "site_critique"
-    t.text     "discovery"
-    t.string   "video"
-    t.string   "program_selection"
-    t.string   "seeking_job"
-    t.string   "scholarship"
-    t.string   "location"
-    t.string   "commitments"
-    t.text     "awareness"
-    t.text     "anything_else"
     t.boolean  "archived",               :default => false, :null => false
   end
 

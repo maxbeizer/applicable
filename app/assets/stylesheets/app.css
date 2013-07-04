@@ -80,8 +80,16 @@ body:before {
 
 
 /* -----------------------------------------
-   Page Name 1
 ----------------------------------------- */
+.orbit-slide {
+  text-align: center;
+  padding: 2.1em 2em 2em;
+}
+
+.orbit-slide p {
+  font-size: 1.2em;
+  padding-top: .5em;
+}
 
 
 

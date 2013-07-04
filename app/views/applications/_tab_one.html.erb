@@ -1,0 +1,11 @@
+<li class="active" id="tab1Tab">
+  <%= f.input :employment_history, :label => 'Employment History' %>
+  <%= f.input :employment_status, :label => 'I am currently...',
+                                  :collection => ['Self-employed', 'Employed',
+                                    'Unemployed and looking for a job',
+                                    'Unemployed but not looking',
+                                    'A Student'],
+                                  :as => :radio_buttons  %>
+
+  <%= f.input :application_reason, :label => 'Why are you applying for the Nashville Software School?' %>
+</li>

@@ -1,38 +1,57 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'rspec/autorun'
+require 'rubygems'
+require 'spork'
 
-# Requires supporting ruby files with custom matchers and macros, etc,
-# in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+if(ENV["SIMPLECOV"])
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_filter "/spec/"
+  end
+  puts "Running coverage tool\\n"
+end
 
-RSpec.configure do |config|
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
+Spork.prefork do
+  ENV["RAILS_ENV"] ||= 'test'
+  require 'rails/application'
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+  require 'capybara/rspec'
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  RSpec.configure do |config|
+    Capybara.javascript_driver = :webkit
+    config.mock_with :rspec
+    config.fixture_path = "#{::Rails.root}/spec/factories"
+    config.use_transactional_fixtures = false
 
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
-  config.infer_base_class_for_anonymous_controllers = false
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with :truncation
+    end
 
-  # Run specs in random order to surface order dependencies. If you find an
-  # order dependency and want to debug it, you can fix the order by providing
-  # the seed, which is printed after each run.
-  #     --seed 1234
-  config.order = "random"
+    config.before(:each) do
+      if example.metadata[:use_truncation]
+        DatabaseCleaner.strategy = :truncation
+      else
+        DatabaseCleaner.start
+      end
+      ActionMailer::Base.deliveries.clear
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+      if example.metadata[:use_truncation]
+        DatabaseCleaner.strategy = :transaction
+      end
+    end
+
+    #config.include Devise::TestHelpers, :type => :controller
+    #config.include Applicable::ControllerSpecHelper, :type => :controller
+    config.include Applicable::IntegrationSpecHelper, :type => :feature
+  end
+end
+
+Spork.each_run do
+  FactoryGirl.reload
 end

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="twelve columns">
+    <dl class="tabs">
+      <dd class="active"><a href="#tab1">Employment Background</a></dd>
+      <dd><a href="#tab2">Technology</a></dd>
+      <dd><a href="#tab3">Finishing Up</a></dd>
+    </dl>
+
+    <%= simple_form_for [student, application] do |f|  %>
+      <ul class="tabs-content">
+        <%= render 'tab_one', :f => f %>
+
+        <%= render 'tab_two', :f => f %>
+
+        <%= render 'tab_three', :f => f %>
+      </ul>
+    <% end %>
+  </div>
+</div>
