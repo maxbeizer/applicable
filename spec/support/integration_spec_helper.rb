@@ -19,7 +19,7 @@ module Applicable
       fill_in("application_site_critique", with: "It's wonderful")
       fill_in("Please tell us something surprising or amusing that you have discovered.", with: "I am a cucumber test")
       fill_in("application_video", with: "www.youtube.com")
-      choose("January 2013 for Web Development Bootcamp")
+      select("January 2013 for Web Development Bootcamp")
       choose("Yes, I will be seeking a job in Nashville")
       choose("Yes, if accepted I will need sponsorship in order to attend the summer 2012 program")
       choose("No but I will be moving there to attend Nashville Software School")

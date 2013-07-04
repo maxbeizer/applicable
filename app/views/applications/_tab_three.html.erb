@@ -1,0 +1,30 @@
+<li id="tab3Tab">
+  <%= f.input :program_selection, :label => 'Which student cohort / program date are you applying for?',
+              :collection => ['January 2013 for Web Development Bootcamp',
+                    'April 2013 for Software Development Foundations (requires acceptance as an apprentice)',
+                    'Either one - if I don\'t qualify as an apprentice I\'d like to enter the bootcamp in January'],
+              :include_blank => false, :input_html => { :class => 'six columns' } %>
+
+  <%= f.input :seeking_job, :label => 'Will you be looking for a job as a developer in the Nashville area after completion of your training and apprenticeship?',
+              :collection => ['Yes, I will be seeking a job in Nashville', 'No, I will not be seeking a job in Nashville'],
+              :as => :radio_buttons  %>
+
+  <%= f.input :scholarship, :label => 'Are you a member of Nashville\'s minority, handicapped or economically disadvantaged community who would like to be considered for a sponsorship/scholarship?',
+              :collection => ['Yes, if accepted I will need sponsorship in order to attend the summer 2012 program',
+                              'No, I\'m prepared to pay the entire tuition fee on or before the first day of the program'],
+              :as => :radio_buttons  %>
+
+  <%= f.input :location, :label => 'Do you live in the Nashville area?',
+              :collection => ['Yes','No but I will be moving there to attend Nashville Software School'],
+              :as => :radio_buttons  %>
+
+  <%= f.input :commitments, :label => 'Do you have commitments on the weekdays during Web Development Bootcamp?' %>
+  <%= f.input :awareness, :label => 'How did you hear about Nashville Software School?' %>
+  <%= f.input :anything_else, :label => 'Is there anything else that you would like us to know?' %>
+
+<%- if student_signed_in? %>
+  <%= f.submit 'Finish the Application', class: 'radius button twelve columns centered' %>
+<%- else %>
+  <%= link_to "Sign In", new_student_session_path %>
+<% end %>
+</li>

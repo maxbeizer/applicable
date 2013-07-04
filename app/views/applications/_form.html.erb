@@ -8,56 +8,11 @@
 
     <%= simple_form_for [student, application] do |f|  %>
       <ul class="tabs-content">
-        <li class="active" id="tab1Tab">
-          <%= f.input :employment_history, :label => 'Employment History' %>
-          <%= f.input :employment_status, :label => 'I am currently...',
-                                          :collection => ['Self-employed', 'Employed',
-                                            'Unemployed and looking for a job',
-                                            'Unemployed but not looking',
-                                            'A Student'],
-                                          :as => :radio_buttons  %>
+        <%= render 'tab_one', :f => f %>
 
-          <%= f.input :application_reason, :label => 'Why are you applying for the Nashville Software School?' %>
-        </li>
+        <%= render 'tab_two', :f => f %>
 
-        <li id="tab2Tab">
-          <%= f.input :tech_background, :label => 'What is your background with computers/technology/programming?' %>
-          <%= f.input :tech_story, :label => "The ideal candidate is someone who loves to solve problems or tinker and who doesn't easily give up.  Can you tell us a story that illustrates these qualities in you?" %>
-          <%= f.input :site_critique, :label => 'What do you like and not like about our website?  What can we do better?' %>
-          <%= f.input :discovery, :label => 'Please tell us something surprising or amusing that you have discovered.' %>
-          <%= f.input :video, :label => 'Video link: It\'s not required but a short video gives you a chance to sell yourself to us in a way that text cannot.  To help make sure we like you feel free to create a short video to support your application.  Put the link to the video here.' %>
-        </li>
-
-        <li id="tab3Tab">
-          <%= f.input :program_selection, :label => 'Which student cohort / program date are you applying for?',
-                      :collection => ['January 2013 for Web Development Bootcamp',
-                            'April 2013 for Software Development Foundations (requires acceptance as an apprentice)',
-                            'Either one - if I don\'t qualify as an apprentice I\'d like to enter the bootcamp in January'],
-                      :as => :radio_buttons  %>
-
-          <%= f.input :seeking_job, :label => 'Will you be looking for a job as a developer in the Nashville area after completion of your training and apprenticeship?',
-                      :collection => ['Yes, I will be seeking a job in Nashville', 'No, I will not be seeking a job in Nashville'],
-                      :as => :radio_buttons  %>
-
-          <%= f.input :scholarship, :label => 'Are you a member of Nashville\'s minority, handicapped or economically disadvantaged community who would like to be considered for a sponsorship/scholarship?',
-                      :collection => ['Yes, if accepted I will need sponsorship in order to attend the summer 2012 program',
-                                      'No, I\'m prepared to pay the entire tuition fee on or before the first day of the program'],
-                      :as => :radio_buttons  %>
-
-          <%= f.input :location, :label => 'Do you live in the Nashville area?',
-                      :collection => ['Yes','No but I will be moving there to attend Nashville Software School'],
-                      :as => :radio_buttons  %>
-
-          <%= f.input :commitments, :label => 'Do you have commitments on the weekdays during Web Development Bootcamp?' %>
-          <%= f.input :awareness, :label => 'How did you hear about Nashville Software School?' %>
-          <%= f.input :anything_else, :label => 'Is there anything else that you would like us to know?' %>
-
-        <%- if student_signed_in? %>
-          <%= f.submit 'Finish the Application', class: 'radius button twelve columns centered' %>
-        <%- else %>
-          <%= link_to "Sign In", new_student_session_path %>
-        <% end %>
-        </li>
+        <%= render 'tab_three', :f => f %>
       </ul>
     <% end %>
   </div>
