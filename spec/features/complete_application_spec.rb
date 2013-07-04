@@ -22,10 +22,6 @@ describe "Student completes application" do
     it "sends the admin an email" do
       expect(ActionMailer::Base.deliveries.last.to).to eq(["nashsoftwareschool@gmail.com"]) #TODO make this dynamic
     end
-
-    it "attaches a PDF to the admin's email" do
-      expect(ActionMailer::Base.deliveries.last.parts.last.filename).to eq("student_#{student.last_name}.pdf")
-    end
   end
 
   describe "as an update action" do

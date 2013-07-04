@@ -9,8 +9,7 @@ class StudentMailer < ActionMailer::Base
 
   def new_applicant_email student
     @student = student
-    attachments["student_#{student.last_name}.pdf"] = StudentPdf.new(@student, view_context).render
-    @url  = "http://applicable.herokuapp.com/students"
+    @url  = "http://applicable.herokuapp.com/admin/login/applications"
     mail(:to => "nashsoftwareschool@gmail.com", :subject => "#{student.name} has applied to NSS")
   end
 
@@ -22,7 +21,7 @@ class StudentMailer < ActionMailer::Base
 
   def applicant_has_updated_email student
     @student = student
-    @url  = "http://applicable.herokuapp.com/students/sign_in"
+    @url  = "http://applicable.herokuapp.com/admin/login/applications"
     mail(:to => student.email, :subject => "Updated NSS Application")
   end
 end
