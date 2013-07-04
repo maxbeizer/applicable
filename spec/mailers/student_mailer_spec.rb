@@ -3,7 +3,7 @@ require "spec_helper"
 describe StudentMailer do
   it "sends the completion email to the student" do
     student = stub
-    student.stub(:email => 'foo@example.com', :first_name => 'bogus')
+    student.stub(:email => 'foo@example.com', :name => 'bogus')
     StudentMailer.completion_email(student).deliver
     expect(ActionMailer::Base.deliveries.first.subject).to eq('Your NSS Application')
   end

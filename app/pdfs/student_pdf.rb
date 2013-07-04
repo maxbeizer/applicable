@@ -14,34 +14,34 @@ class StudentPdf < Prawn::Document
       text "<b>Twitter:</b> #{@student.twitter}", :inline_format => true
       text "<b>Personal URL:</b> #{@student.personal_url}", :inline_format => true
     move_down 15
-      text "<b>Employment History:</b> #{@student.employment_history}", :inline_format => true
+      text "<b>Employment History:</b> #{@student.applications.last.employment_history}", :inline_format => true
     move_down 15
-      text "<b>Employment Status:</b> #{@student.employment_status}", :inline_format => true
+      text "<b>Employment Status:</b> #{@student.applications.last.employment_status}", :inline_format => true
     move_down 15
-      text "<b>Reason for Applicaiton:</b> #{@student.application_reason}", :inline_format => true
+      text "<b>Reason for Applicaiton:</b> #{@student.applications.last.application_reason}", :inline_format => true
     move_down 15
-      text "<b>Background in Tech:</b> #{@student.tech_background}", :inline_format => true
+      text "<b>Background in Tech:</b> #{@student.applications.last.tech_background}", :inline_format => true
     move_down 15
-      text "<b>Tech Story:</b> #{@student.tech_story}", :inline_format => true
+      text "<b>Tech Story:</b> #{@student.applications.last.tech_story}", :inline_format => true
     move_down 15
-      text "<b>Critique of NSS Site:</b> #{@student.site_critique}", :inline_format => true
+      text "<b>Critique of NSS Site:</b> #{@student.applications.last.site_critique}", :inline_format => true
     move_down 15
-      text "<b>Discovery Story:</b> #{@student.discovery}", :inline_format => true
+      text "<b>Discovery Story:</b> #{@student.applications.last.discovery}", :inline_format => true
     move_down 15
-      text "<b>Video URL:</b> #{@student.video}", :inline_format => true
+      text "<b>Video URL:</b> #{@student.applications.last.video}", :inline_format => true
     move_down 15
-      text "<b>Program Selection:</b> #{@student.program_selection}", :inline_format => true
+      text "<b>Program Selection:</b> #{@student.applications.last.program_selection}", :inline_format => true
     move_down 15
-      text "<b>Seeking Job?:</b> #{@student.seeking_job}", :inline_format => true
+      text "<b>Seeking Job?:</b> #{@student.applications.last.seeking_job}", :inline_format => true
     move_down 15
-      text "<b>Scholarship?:</b> #{@student.scholarship}", :inline_format => true
+      text "<b>Scholarship?:</b> #{@student.applications.last.scholarship}", :inline_format => true
     move_down 15
-      text "<b>Location:</b> #{@student.location}", :inline_format => true
+      text "<b>Location:</b> #{@student.applications.last.location}", :inline_format => true
     move_down 15
-      text "<b>Commitments:</b> #{@student.commitments}", :inline_format => true
+      text "<b>Commitments:</b> #{@student.applications.last.commitments}", :inline_format => true
     move_down 15
-      text "<b>Awareness of NSS:</b> #{@student.awareness}", :inline_format => true
+      text "<b>Awareness of NSS:</b> #{@student.applications.last.awareness}", :inline_format => true
     move_down 15
-      text "<b>Anything Else?:</b> #{@student.anything_else}", :inline_format => true
+      text "<b>Anything Else?:</b> #{@student.applications.last.anything_else}", :inline_format => true
   end
 end
